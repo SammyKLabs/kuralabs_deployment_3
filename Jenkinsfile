@@ -28,8 +28,7 @@ pipeline {
        
       }
     }
-   }
-   stage ('Clean') {
+    stage ('Clean') {
       agent{label 'awsDeploy'}
       steps {
         sh '''#!/bin/bash
@@ -51,8 +50,8 @@ pipeline {
         pip install gunicorn
         python3 -m gunicorn -w 4 application:app -b 0.0.0.0 --daemon
         '''
-       }
       }
     }
-   }
+  }
  }
+}
